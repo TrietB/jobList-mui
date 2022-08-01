@@ -32,11 +32,6 @@ const Search = styled('div')(({ theme }) => ({
   },
 }));
 
-const style= {
-  color : {
-    backgroundColor:'yellow'
-  }
-}
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
