@@ -11,12 +11,12 @@ function JobCard({job}) {
         </Typography>
     <Divider variant="middle" />
     <Stack direction="row" sx={{mt:1, mb:1}}>
-        {job.skills.slice(0,3).map((skill)=>(
-            <Chip label={skill} color='secondary' sx={{mr:.5}}/>
+        {job.skills.slice(0,4).map((skill, i)=>(
+            <Chip key={i+1} label={skill} color='secondary' sx={{mr:.5, fontSize:9}} size='small'/>
             ))}
     </Stack>
       <Typography color="common.white" variant="body2" marginTop={2}>
-          {job.description}
+          {job.description.slice(0,199)}...
       </Typography>
     </Box>
     <Box sx={{ mt: 3, ml: 1, mb: 1, textAlign:'center' }} >
