@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import apiService from './dataApi/apiService';
 import JobList from './components/JobList';
+import LoginForm from './components/LoginForm';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <JobList/>
     </Grid>
     <BasicPagination/>
+    <LoginForm/>
     </Theming>
   );
 }
