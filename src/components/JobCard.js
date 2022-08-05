@@ -1,5 +1,6 @@
-import { Box, Button, Chip, Divider, Stack, Typography } from '@mui/material'
+import { Box, Chip, Divider, Stack, Typography } from '@mui/material'
 import React from 'react'
+import BasicModal from './JobModal'
 
 
 function JobCard({job}) {
@@ -20,7 +21,8 @@ function JobCard({job}) {
       </Typography>
     </Box>
     <Box sx={{ mt: 3, ml: 1, mb: 1, textAlign:'center' }} >
-      <Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary">LEARN MORE</Button>
+        <BasicModal job={job}/>
+      {/* <Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary">LEARN MORE</Button> */}
     </Box>
   </Box>  
   )

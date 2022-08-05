@@ -22,7 +22,7 @@ function JobList() {
     <div>{data.slice(0,10).map((job, i)=>(
         <Grid key={i+1} item>
 
-            <JobCard key={i+1} job={job}/>
+            <JobCard key={job.id} job={job}/>
         </Grid>
 
     ))}</div>
