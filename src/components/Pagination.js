@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 export default function BasicPagination() {
   return (
     <Stack sx={{alignItems:'center'}} spacing={2}>
-      <Pagination count={10} />
+      <Pagination count={3} />
     </Stack>
   );
 }

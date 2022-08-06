@@ -3,7 +3,7 @@ import { BASE_URL } from './config'
 
 
 const apiService = axios.create({
-    baseURL: 'http://localhost:3000/',
+    baseURL: 'http://localhost:5000',
 })
 
 apiService.interceptors.request.use((request)=>{

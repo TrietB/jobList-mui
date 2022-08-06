@@ -11,14 +11,11 @@ function App() {
   return (
     <Theming>
     <PrimarySearchAppBar/>
-    <LoginForm/>
-    <ToggleTheme>
-      </ToggleTheme>
+    <ToggleTheme/>
     <Grid container spacing={2} alignItems="center" justifyContent="center">
         <JobList/>
     </Grid>
     <BasicPagination/>
-    
     </Theming>
   );
 }

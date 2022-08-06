@@ -25,14 +25,14 @@ export default function BasicModal({job}) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <>
       <Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={handleOpen}>learn more</Button>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-      >
+        >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             {job.title}
@@ -44,8 +44,8 @@ export default function BasicModal({job}) {
             Skills:
             <Stack direction="row" sx={{ mb:1}}>
         {job.skills.slice(0,4).map((skill, i)=>(
-            <Chip key={i+1} label={skill} color='secondary' sx={{mr:.5, fontSize:9}} size='small'/>
-            ))}
+          <Chip key={i+1} label={skill} color='secondary' sx={{mr:.5, fontSize:9}} size='small'/>
+          ))}
             </Stack>
            </Typography>
            <Typography sx={{mt:2}}>
@@ -53,6 +53,7 @@ export default function BasicModal({job}) {
            </Typography>
         </Box>
       </Modal>
-    </div>
+    </>
+    
   );
 }
