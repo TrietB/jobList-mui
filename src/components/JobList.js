@@ -20,11 +20,11 @@ function JobList() {
     
   return (
     <div>{data.slice(0,10).map((job, i)=>(
+      <Grid container spacing={1}>
         <Grid key={i+1} item>
-
             <JobCard key={job.id} job={job}/>
         </Grid>
-
+      </Grid>
     ))}</div>
   )
 }

@@ -19,7 +19,7 @@ const style = {
   justifyContent: 'center'
 };
 
-export default function BasicModal({job}) {
+export default function JobModal({job}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

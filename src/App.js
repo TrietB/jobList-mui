@@ -11,10 +11,7 @@ function App() {
   return (
     <Theming>
     <PrimarySearchAppBar/>
-    <ToggleTheme/>
-    <Grid container spacing={2} alignItems="center" justifyContent="center">
         <JobList/>
-    </Grid>
     <BasicPagination/>
     </Theming>
   );
