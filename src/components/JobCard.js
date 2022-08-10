@@ -1,9 +1,16 @@
-import { Box, Chip, Divider, Stack, Typography } from '@mui/material'
+import { Box, Button, Chip, Divider, Stack, Typography } from '@mui/material'
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { App } from '../App'
 import JobModal from './JobModal'
 
 
 function JobCard({job}) {
+  const [openModal, setOpenModal] = React.useState(false)
+  const handleModal = () => {
+    setOpenModal(!openModal)
+  }
+
   return (
   <Box sx={{ width: 400,height:300, maxWidth: 600, bgcolor: 'black', border:1, mt:1,mb:1 }}>
     <Box sx={{ my: 3, mx: 2, height:200,  }}>
@@ -21,7 +28,14 @@ function JobCard({job}) {
       </Typography>
     </Box>
     <Box sx={{ mt: 3, ml: 1, mb: 1, textAlign:'center' }} >
-        <JobModal job={job}/>
+        <Routes>
+          <Route path="*" element={<Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={handleModal}>learn more</Button>
+}>
+
+          <Route path='/job' element={<JobModal job={job} openModal={openModal} handleModal={handleModal} />}/>
+</Route>
+        </Routes>
+        {/* <JobModal job={job} openModal={openModal} handleModal={handleModal} /> */}
     </Box>
   </Box>  
   )

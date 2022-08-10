@@ -19,17 +19,14 @@ const style = {
   justifyContent: 'center'
 };
 
-export default function JobModal({job}) {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function JobModal({job, openModal, handleModal}) {
 
   return (
     <>
-      <Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={handleOpen}>learn more</Button>
+      {/* <Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={handleOpen}>learn more</Button> */}
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={openModal}
+        onClose={handleModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         >
@@ -47,10 +44,10 @@ export default function JobModal({job}) {
           <Chip key={i+1} label={skill} color='secondary' sx={{mr:.5, fontSize:9}} size='small'/>
           ))}
             </Stack>
-           </Typography>
-           <Typography sx={{mt:2}}>
+          </Typography>
+          <Typography sx={{mt:2}}>
             Location: {job.city}
-           </Typography>
+          </Typography>
         </Box>
       </Modal>
     </>

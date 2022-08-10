@@ -20,19 +20,21 @@ const style = {
   flexDirection:'column'
 };
 
-export default function LoginForm() {
+export default function LoginForm({props, ModalHandler}) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const [open, setOpen] = React.useState(false);
+  
+  // const ModalHandler = () => {
+  //   setOpen(!open)
+  // }
   console.log(errors);
   
   return (
     <>
-    <Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={handleOpen}>Sign in</Button>
-    <Modal open={open}
-        onClose={handleClose}
+    {/* <Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={ModalHandler}>Sign in</Button> */}
+    <Modal open={props}
+        onClose={ModalHandler}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
     <Box sx={style} component='form' onSubmit={handleSubmit(onSubmit)}>

@@ -16,6 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import LoginForm from './LoginForm';
+import { OpenModal } from '../App';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -203,21 +204,7 @@ export default function PrimarySearchAppBar() {
                 <NotificationsIcon />
               </Badge>
             </IconButton> */}
-           <LoginForm/>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            {/* <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton> */}
-            <LoginForm/>
-
+           <OpenModal/>
           </Box>
         </Toolbar>
       </AppBar>
