@@ -17,6 +17,9 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import LoginForm from './LoginForm';
 import { OpenModal } from '../App';
+import {Link, useNavigate} from 'react-router-dom'
+import { Button } from '@mui/material';
+import useAuth from '../hooks/useAuth';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -82,6 +85,16 @@ export default function PrimarySearchAppBar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  let auth = useAuth()
+  let navigate = useNavigate()
+
+  const handleSignout = ()=>{
+    auth.signout(()=>{
+      navigate('/')
+    })
+  }
+
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -204,7 +217,8 @@ export default function PrimarySearchAppBar() {
                 <NotificationsIcon />
               </Badge>
             </IconButton> */}
-           <OpenModal/>
+            {!auth.user? (<Button as={Link} to='/login' sx={{color: 'white'}} >Sign IN</Button>) : (<Button onClick={handleSignout} sx={{color: 'white'}}>Log Out</Button>)}
+           {/* <OpenModal/> */}
           </Box>
         </Toolbar>
       </AppBar>

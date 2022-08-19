@@ -5,6 +5,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
+import useAuth from '../hooks/useAuth';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const style = {
   position: 'absolute',
@@ -22,9 +24,16 @@ const style = {
 
 export default function LoginForm({props, ModalHandler}) {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-  // const [open, setOpen] = React.useState(false);
-  
+  let navigate = useNavigate()
+  let location = useLocation()
+  let from = location.state?.from?.pathname || "/";
+  const onSubmit = (data) =>{
+    auth.signin(data.Name, ()=>{
+      navigate(from)
+    })
+  }
+  const [open, setOpen] = React.useState(false);
+  let auth = useAuth()
   // const ModalHandler = () => {
   //   setOpen(!open)
   // }
@@ -57,7 +66,7 @@ export default function LoginForm({props, ModalHandler}) {
     <Button variant="outlined" type='submit'>
       Submit
     </Button>
-    </Box>
+      </Box>
     </Modal>
     </>
 

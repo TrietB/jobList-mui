@@ -1,10 +1,15 @@
 import { Grid } from '@mui/material'
 import React, {useEffect, useState} from 'react'
+import { useLocation } from 'react-router-dom'
 import apiService from '../dataApi/apiService'
 import JobCard from './JobCard'
 
 
 function JobList() {
+  let location = useLocation()
+  
+  let state = location.state
+
     const [data, setData] = useState([])
     useEffect(() => {
         const fetchData = async () => {

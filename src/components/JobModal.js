@@ -4,6 +4,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Chip, Stack } from '@mui/material';
+import Navigate, { useNavigate, useParams } from "react-router-dom"
+import apiService from '../dataApi/apiService';
 
 const style = {
   position: 'absolute',
@@ -19,7 +21,28 @@ const style = {
   justifyContent: 'center'
 };
 
-export default function JobModal({job, openModal, handleModal}) {
+export default function JobModal() {
+  const [ openModal, setOpenModal] = React.useState(true)
+  let {id} = useParams()
+  const [job, setJob] = React.useState(null)
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const {data: jobData} = await apiService.get(`/jobs/${id}`)
+        setJob(jobData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData()
+  }, [])
+  
+
+  let navigate = useNavigate()
+  const handleModal = ()=>{
+    
+    setOpenModal(!openModal)
+  }
 
   return (
     <>
@@ -32,21 +55,21 @@ export default function JobModal({job, openModal, handleModal}) {
         >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {job.title}
+            {job?.title}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {job.description.slice(0,150)}
+          {job?.description.slice(0,150)}
           </Typography>
           <Typography sx={{mt: 2}}>
             Skills:
             <Stack direction="row" sx={{ mb:1}}>
-        {job.skills.slice(0,4).map((skill, i)=>(
+        {job?.skills.slice(0,4).map((skill, i)=>(
           <Chip key={i+1} label={skill} color='secondary' sx={{mr:.5, fontSize:9}} size='small'/>
           ))}
             </Stack>
           </Typography>
           <Typography sx={{mt:2}}>
-            Location: {job.city}
+            Location: {job?.city}
           </Typography>
         </Box>
       </Modal>
