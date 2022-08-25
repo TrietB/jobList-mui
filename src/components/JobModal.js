@@ -1,10 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Chip, Stack } from '@mui/material';
-import Navigate, { useNavigate, useParams } from "react-router-dom"
+import  { useNavigate, useParams } from "react-router-dom"
 import apiService from '../dataApi/apiService';
 
 const style = {
@@ -30,6 +29,7 @@ export default function JobModal() {
       try {
         const {data: jobData} = await apiService.get(`/jobs/${id}`)
         setJob(jobData)
+        console.log(jobData)
       } catch (error) {
         console.log(error)
       }
@@ -40,7 +40,7 @@ export default function JobModal() {
 
   let navigate = useNavigate()
   const handleModal = ()=>{
-    
+    navigate('/')
     setOpenModal(!openModal)
   }
 

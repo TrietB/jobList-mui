@@ -1,13 +1,4 @@
 import React from "react";
-import {
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-  useLocation,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
 
 export default function AuthProvider({ children }) {
     let [user, setUser] = React.useState(null);

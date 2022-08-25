@@ -26,22 +26,18 @@ export default function LoginForm({props, ModalHandler}) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   let navigate = useNavigate()
   let location = useLocation()
-  let from = location.state?.from?.pathname || "/";
+  let auth = useAuth()
+  let from = location.state?.from?.pathname || '/';
   const onSubmit = (data) =>{
     auth.signin(data.Name, ()=>{
       navigate(from)
     })
   }
-  const [open, setOpen] = React.useState(false);
-  let auth = useAuth()
-  // const ModalHandler = () => {
-  //   setOpen(!open)
-  // }
+  console.log(from)
   console.log(errors);
   
   return (
     <>
-    {/* <Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={ModalHandler}>Sign in</Button> */}
     <Modal open={props}
         onClose={ModalHandler}
         aria-labelledby="modal-modal-title"
@@ -63,7 +59,7 @@ export default function LoginForm({props, ModalHandler}) {
           {...register("Password", {})}
           // defaultValue="Hello World"
         />
-    <Button variant="outlined" type='submit'>
+    <Button variant="outlined" type='submit' >
       Submit
     </Button>
       </Box>
