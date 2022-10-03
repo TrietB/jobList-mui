@@ -35,6 +35,7 @@ export default function JobModal() {
       }
     }
     fetchData()
+    // eslint-disable-next-line
   }, [])
   
 
