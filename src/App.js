@@ -7,7 +7,7 @@ import JobModal from './components/JobModal';
 import HomePage from './components/HomePage';
 import RequireAuth from './authentication/RequireAuth';
 import AuthProvider from './authentication/AuthProvider';
-import useAuth from './hooks/useAuth';
+
 
 
 function App() {
@@ -22,6 +22,11 @@ function App() {
       <Route path='/' element={<LayOut/>}>
             <Route index element={<HomePage/>}/>
             <Route path='/login' element={<OpenModal/>}/>
+            <Route path='/job/:id' element={
+              <RequireAuth>
+                <JobModal/>
+              </RequireAuth>
+            } /> 
       </Route>    
   </Routes>
 

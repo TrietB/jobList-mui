@@ -1,12 +1,10 @@
 import { Box, Button, Chip, Divider, Stack, Typography } from '@mui/material'
 import React from 'react'
-import { Outlet, Route, Routes, Link, useLocation, useNavigate } from 'react-router-dom'
-import { App } from '../App'
-import JobModal from './JobModal'
+import {  Link, useLocation, } from 'react-router-dom'
+
 
 
 function JobCard({job}) {
-  const [openModal, setOpenModal] = React.useState(false)
   
   let location = useLocation()
 
