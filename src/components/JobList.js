@@ -20,13 +20,13 @@ function JobList() {
       }, [])
     
   return (
-    <div>{data.slice(0,6).map((job, i)=>(
-      <Grid container spacing={1} key={i}>
-        <Grid item >
+    <Grid container spacing={1}>
+    {data.slice(0,8).map((job, i)=>(
+        <Grid item key={i} xs={3} >
             <JobCard key={job.id} job={job}/>
         </Grid>
-      </Grid>
-    ))}</div>
+    ))}
+    </Grid>
   )
 }
 
