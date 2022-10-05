@@ -95,7 +95,7 @@ export default function PrimarySearchAppBar() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
 
           {!auth.user ? (<Button as={Link} to='/login' sx={{color: 'white'}}>Sign In</Button>) : (<Button onClick={handleSignOut} sx={{color: 'white'}}>Log Out</Button>)}
            {/* <OpenModal/> */}

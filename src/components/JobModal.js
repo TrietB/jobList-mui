@@ -11,7 +11,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 600,
+  minWidth: 200,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -47,7 +47,6 @@ export default function JobModal() {
 
   return (
     <>
-      {/* <Button sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={handleOpen}>learn more</Button> */}
       <Modal
         open={openModal}
         onClose={handleModal}

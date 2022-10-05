@@ -20,9 +20,9 @@ function JobList() {
       }, [])
     
   return (
-    <Grid container spacing={1}>
+    <Grid container spacing={1} sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
     {data.slice(0,8).map((job, i)=>(
-        <Grid item key={i} xs={3} >
+        <Grid item key={i} xs={12} md={6} lg={3} >
             <JobCard key={job.id} job={job}/>
         </Grid>
     ))}

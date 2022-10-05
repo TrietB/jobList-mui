@@ -13,7 +13,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 600,
+  minWidth: 200,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -43,7 +43,7 @@ export default function LoginForm({props, ModalHandler}) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
     <Box sx={style} component='form' onSubmit={handleSubmit(onSubmit)}>
-      <Typography variant='h3' sx={{mb:2}}>Please Sign In</Typography>
+      <Typography variant='h3' sx={{mb:2, width:200, mr: 'auto', ml:'auto' }}>Sign In</Typography>
     <TextField sx={{mb:2}}
           required
           id="outlined-required"

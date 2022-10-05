@@ -9,7 +9,7 @@ function JobCard({job}) {
   let location = useLocation()
 
   return (
-  <Box sx={{ width: 400,height:300, maxWidth: 600, bgcolor: 'black', border:1, mt:1,mb:1 }}>
+  <Box sx={{ minWidth: 300,height:300, maxWidth: 600, bgcolor: 'black', border:1, mt:1,mb:1 }}>
     <Box sx={{ my: 3, mx: 2, height:200,  }}>
         <Typography gutterBottom variant="h5" component="div" textAlign='center' color="common.white">
           {job.title}
@@ -25,7 +25,7 @@ function JobCard({job}) {
       </Typography>
     </Box>
     <Box sx={{ mt: 3, ml: 1, mb: 1, textAlign:'center' }} >
-        <Button as={Link} to={`/job/${job.id}`} state={{backGroundLocation : location}}  sx={{bgcolor: 'Orange' }} variant="contained" color="secondary">LEARN MORE</Button>
+        <Button as={Link} to={`/job/${job.id}`} state={{backGroundLocation : location}}  sx={{bgcolor: 'Orange', textDecoration:'none' }} variant="contained" color="secondary">LEARN MORE</Button>
         
         {/* <Link to={`/job/${job.id}`} state={{backGroundLocation : location}} >See more</Link> */}
     </Box>
