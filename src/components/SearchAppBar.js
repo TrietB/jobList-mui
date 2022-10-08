@@ -11,6 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate } from 'react-router-dom';
+import { Container } from '@mui/system';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -65,7 +66,9 @@ export default function PrimarySearchAppBar() {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }} >
+    <Box sx={{ flexGrow: 1, bgcolor:'black' }} >
+      <Container>
+
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -74,7 +77,7 @@ export default function PrimarySearchAppBar() {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
-          >
+            >
             <MenuIcon />
           </IconButton>
           <Typography
@@ -82,7 +85,7 @@ export default function PrimarySearchAppBar() {
             noWrap
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' }, color: 'secondary.main' }}
-          >
+            >
             JOB Browser
           </Typography>
           <Search>
@@ -92,16 +95,22 @@ export default function PrimarySearchAppBar() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
-            />
+              />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
 
-          {!auth.user ? (<Button as={Link} to='/login' sx={{color: 'white'}}>Sign In</Button>) : (<Button onClick={handleSignOut} sx={{color: 'white'}}>Log Out</Button>)}
+          {!auth.user ? (<Link to='/login' style={{color: 'white'}}>Sign In</Link>) : (
+          <>
+          <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>Welcome, {auth.user}</Box>
+          <Button onClick={handleSignOut} sx={{color: 'white', ml: 2}}> Log Out</Button>
+          </>
+)}
            {/* <OpenModal/> */}
           </Box>
         </Toolbar>
       </AppBar>
+      </Container>
     </Box>
   );
 }

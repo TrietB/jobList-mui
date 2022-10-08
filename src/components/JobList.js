@@ -1,4 +1,5 @@
 import { Grid } from '@mui/material'
+import { Container } from '@mui/system'
 import React, {useEffect, useState} from 'react'
 import apiService from '../dataApi/apiService'
 import JobCard from './JobCard'
@@ -20,13 +21,16 @@ function JobList() {
       }, [])
     
   return (
-    <Grid container spacing={1} sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+    <Container sx={{ width: '100vw'}}>
+
+    <Grid container spacing={3} sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
     {data.slice(0,8).map((job, i)=>(
-        <Grid item key={i} xs={12} md={6} lg={3} >
+      <Grid item key={i} xs={12} md={6} xl={4} >
             <JobCard key={job.id} job={job}/>
         </Grid>
     ))}
     </Grid>
+    </Container>
   )
 }
 

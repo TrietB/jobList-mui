@@ -62,12 +62,12 @@ export default function JobModal() {
           </Typography>
           <Typography sx={{mt: 2}}>
             Skills:
+          </Typography>
             <Stack direction="row" sx={{ mb:1}}>
         {job?.skills.slice(0,4).map((skill, i)=>(
           <Chip key={i+1} label={skill} color='secondary' sx={{mr:.5, fontSize:9}} size='small'/>
           ))}
             </Stack>
-          </Typography>
           <Typography sx={{mt:2}}>
             Location: {job?.city}
           </Typography>

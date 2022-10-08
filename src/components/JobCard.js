@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Divider, Stack, Typography } from '@mui/material'
+import { Box, Chip, Divider, Stack, Typography } from '@mui/material'
 import React from 'react'
 import {  Link, useLocation, } from 'react-router-dom'
 
@@ -24,10 +24,12 @@ function JobCard({job}) {
           {job.description.slice(0,199)}...
       </Typography>
     </Box>
-    <Box sx={{ mt: 3, ml: 1, mb: 1, textAlign:'center' }} >
-        <Button as={Link} to={`/job/${job.id}`} state={{backGroundLocation : location}}  sx={{bgcolor: 'Orange', textDecoration:'none' }} variant="contained" color="secondary">LEARN MORE</Button>
+    <Box sx={{textAlign:'center'}}>
+    <Box sx={{ textAlign:'center', backgroundColor:'orange', display:'inline-block',padding: '5px 10px',borderRadius:'10px', margin:'auto' }} >
+        <Link to={`/job/${job.id}`} state={{backGroundLocation : location}}  style={{backgroundColor:'orange', textDecoration:'none', color:'white' }}>LEARN MORE</Link>
         
         {/* <Link to={`/job/${job.id}`} state={{backGroundLocation : location}} >See more</Link> */}
+    </Box>
     </Box>
   </Box>  
   )

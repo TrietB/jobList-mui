@@ -1,7 +1,7 @@
-import { Button} from '@mui/material';
+
 import React from 'react';
 import LoginForm from './components/LoginForm';
-import { Link, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import LayOut from './components/LayOut';
 import JobModal from './components/JobModal';
 import HomePage from './components/HomePage';
@@ -56,7 +56,7 @@ function OpenModal(){
   return(
     <>
     {/* <Link to="/login"> */}
-    <Button as={Link} to='/login' sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={ModalHandler}>Sign in</Button>
+    {/* <Link  to='/login' sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={ModalHandler}>Sign in</Link> */}
     {/* </Link> */}
     {/* {!auth.user ? (<Button as={Link} to='/login' sx={{bgcolor: 'Orange' }} variant="contained" color="secondary" onClick={ModalHandler}>Sign in</Button>) : (<Button onClick={handleSignout} sx={{bgcolor: 'Orange' }} variant="contained" color="secondary">Log Out</Button>)} */}
     <LoginForm props={showModal} ModalHandler={ModalHandler}/>

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const apiService = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: process.env.REACT_APP_BASE_URL,
 })
 
 apiService.interceptors.request.use((request)=>{

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -23,6 +23,7 @@ const style = {
 };
 
 export default function LoginForm({props, ModalHandler}) {
+  const [username] = useState('TrietB')
   const { register, handleSubmit, formState: { errors } } = useForm();
   let navigate = useNavigate()
   let location = useLocation()
@@ -49,7 +50,7 @@ export default function LoginForm({props, ModalHandler}) {
           id="outlined-required"
           label="Name"
           {...register("Name", {})}
-          // defaultValue="Hello World"
+          defaultValue={username}
         />
     <TextField sx={{mb:2}}
           required
